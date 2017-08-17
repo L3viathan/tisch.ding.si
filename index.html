@@ -3,15 +3,6 @@
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="tischdingsi.js"></script>
 <style type="text/css">
-.FlattrButton {
-	transform: rotate(180deg) scale(2);
-	-ms-transform: rotate(180deg) scale(2);
-	-webkit-transform: rotate(180deg) scale(2);
-	-o-transform: rotate(180deg) scale(2);
-	-moz-transform: rotate(180deg) scale(2);
-	left:250px;
-	position:fixed;
-}
 em {
 	color:#555;
 	position:fixed;
@@ -67,21 +58,10 @@ and (max-device-width : 480px) {
 }
 
 </style>
-<script type="text/javascript">
-/* <![CDATA[ */
-    (function() {
-        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto&popout=0';
-        t.parentNode.insertBefore(s, t);
-    })();
-/* ]]> */</script>
 <title>(╯°□°）╯︵ ┻━┻</title>
 </head>
 <body>
 <span style="display:none;" id="helper"></span>
-<iframe src="" id="logger" style="display:none";></iframe>
 <input type="text" class="nomac" id="tischdings" name="flip" onclick="removeIfDefaultText()" onmouseover="this.select()" value="(╯°□°）╯︵ ┻━┻">
 <script type="text/javascript">
 	function removeIfDefaultText() {
@@ -110,7 +90,6 @@ if(location.pathname != "/") {
     var fixed = "(╯°□°）╯︵" + $("#helper").html();
     $("#tischdings").val(fixed);
     document.title = fixed;
-    $("#logger").attr("src","/log.php?flippee=" + decodeURIComponent(location.pathname.slice(1)))
 }
 $("#tischdings").keypress(function(e){
     if(e.which == 13) location.href = "/" + $("#tischdings").val();
