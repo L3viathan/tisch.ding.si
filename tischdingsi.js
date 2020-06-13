@@ -4,7 +4,7 @@ function replace_with_flipped(string) {
         .then(function(response) {
             var flipped = response.data;
             var helper = document.querySelector("#helper").innerHTML = flipped;
-            var fixed = "(╯°□°）╯︵" + flipped;
+            var fixed = "(╯°□°）╯︵ " + flipped;
             document.querySelector("#tischdings").value = fixed;
             document.title = fixed;
         })
