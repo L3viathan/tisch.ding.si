@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head>
 <meta charset="utf-8">
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="tischdingsi.js"></script>
 <style type="text/css">
 em {
@@ -76,23 +76,18 @@ and (max-device-width : 480px) {
 <br/>
 <em>Press <span id="control">Ctrl</span>+C to copy<br />
 <small><small>(replace text and press enter to flip)</small></small></em>
-<a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://ding.si"></a>
-<noscript><a href="http://flattr.com/thing/956181/Dingsi" target="_blank">
-<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
 <script type="text/javascript">
-    if (navigator.appVersion.indexOf("Mac")!=-1) {
-        document.getElementById("control").innerHTML = "⌘";
-        $("#tischdings").removeClass("nomac");
-    }
-if(location.pathname != "/") {
-    var flipped = flip(decodeURIComponent(location.pathname.slice(1)));
-    $("#helper").html(flipped);
-    var fixed = "(╯°□°）╯︵" + $("#helper").html();
-    $("#tischdings").val(fixed);
-    document.title = fixed;
+(function() {
+if (navigator.appVersion.indexOf("Mac")!=-1) {
+    document.getElementById("control").innerHTML = "⌘";
+    document.querySelector("#tischdings").classList = ["nomac"];
 }
-$("#tischdings").keypress(function(e){
-    if(e.which == 13) location.href = "/" + $("#tischdings").val();
-});
+if(location.pathname != "/") {
+    replace_with_flipped(decodeURIComponent(location.pathname.slice(1)));
+}
+document.querySelector("#tischdings").onkeypress = function(e){
+    if(e.which == 13) location.href = "/" + document.querySelector("#tischdings").value;
+};
+})();
 </script>
 </body></html>
